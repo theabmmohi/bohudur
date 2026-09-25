@@ -1,1 +1,5 @@
-export const Bohudur = {}
+export class Bohudur {
+  constructor() {
+    
+  }
+}
