@@ -13,7 +13,8 @@ const aliases = Object.fromEntries(
 export default defineConfig({
   entry: {
     index: "src/index.ts",
-    types: "src/types/index.ts"
+    types: "src/types/index.ts",
+    error: "src/error/index.ts",
   },
   format: ["esm", "cjs"],
   dts: true,
