@@ -20,8 +20,9 @@
     "types": ["node"],
     "paths": {
       "@/*": ["./src/*"],
-      "@type/*": ["./src/type/*"],
-      "@error/*": ["./src/error/*"]
+      "@bohudur/*": ["./src/bohudur/*"],
+      "@error/*": ["./src/error/*"],
+      "@type/*": ["./src/type/*"]
     }
   },
   "include": ["test", "src"],
