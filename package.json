@@ -22,6 +22,8 @@
   ],
   "scripts": {
     "dev": "tsdown --watch",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
     "typecheck": "tsc --noEmit",
     "build": "tsdown",
     "test": "vitest run",
@@ -43,6 +45,16 @@
         "default": "./dist/index.cjs"
       }
     },
+    "./types": {
+      "import": {
+        "types": "./dist/types.d.mts",
+        "default": "./dist/types.mjs"
+      },
+      "require": {
+        "types": "./dist/types.d.cts",
+        "default": "./dist/types.cjs"
+      }
+    },
     "./package.json": "./package.json"
   },
   "engines": {
@@ -51,6 +63,7 @@
   "sideEffects": false,
   "devDependencies": {
     "@types/node": "^26.6.2",
+    "prettier": "3.9.9",
     "tsdown": "^0.23.0",
     "typescript": "^7.0.2",
     "unrun": "^0.3.1",
