@@ -1,0 +1,60 @@
+{
+  "name": "bohudur",
+  "author": "@theabmmohi",
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": [
+    "bohudur",
+    "payment",
+    "binance",
+    "bkash",
+    "nagad",
+    "rocket",
+    "sdk"
+  ],
+  "description": "TypeScript SDK for the Bohudur payment gateway",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theabmmohi/bohudur.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "build": "tsdown",
+    "test": "vitest run",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "main": "./dist/index.cjs",
+  "type": "module",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "tsdown": "^0.23.0",
+    "typescript": "^7.0.2",
+    "unrun": "^0.3.1",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^5.0.1"
+  }
+}
