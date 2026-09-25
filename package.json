@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "dev": "tsdown --watch",
-    "format": "prettier --write \"src/**/*.ts\"",
+    "format:fix": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\"",
     "typecheck": "tsc --noEmit",
     "build": "tsdown",
@@ -53,15 +53,16 @@
       "require": {
         "types": "./dist/types.d.cts",
         "default": "./dist/types.cjs"
-      },
-    "./error": {
+      }
+    },
+    "./errors": {
       "import": {
-        "types": "./dist/error.d.mts",
-        "default": "./dist/error.mjs"
+        "types": "./dist/errors.d.mts",
+        "default": "./dist/errors.mjs"
       },
       "require": {
-        "types": "./dist/error.d.cts",
-        "default": "./dist/error.cjs"
+        "types": "./dist/errors.d.cts",
+        "default": "./dist/errors.cjs"
       }
     },
     "./package.json": "./package.json"
