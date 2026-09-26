@@ -1,7 +1,8 @@
-import type { BohudurOptions, CreateRequest, ExecuteRequest, QueryRequest } from "@type/index"
+import type { BohudurOptions, CreateRequest, ExecuteRequest, QueryRequest, WebhookPayload } from "@type/index"
 import create from "@bohudur/create"
 import execute from "@bohudur/execute"
 import query from "@bohudur/query"
+import verifyWebhook from "@bohudur/verifyWebhook"
 
 export default class Bohudur {
   constructor(
@@ -16,5 +17,8 @@ export default class Bohudur {
   }
   query(request: QueryRequest) {
     return query(this.key, this.options, request)
+  }
+  verifyWebhook(payload: WebhookPayload) {
+    return verifyWebhook(this.key, this.options, payload)
   }
 }
