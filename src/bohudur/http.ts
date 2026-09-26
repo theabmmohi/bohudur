@@ -22,16 +22,16 @@ export async function request<T>(key: string, options: BohudurOptions, path: str
       body: JSON.stringify(body),
       signal: controller.signal
     })
-    if (!response.ok) throw new BohudurError(`Bohudur: Server error (HTTP ${response.status}).`, response.status, "server")
+    if (!response.ok) throw new BohudurError(`Server error (HTTP ${response.status}).`, response.status, "server")
 
     let data: any
     try {
       data = await response.json()
     } catch {
-      throw new BohudurError("Bohudur: Failed to parse server response as JSON.", 0, "server")
+      throw new BohudurError("Failed to parse server response as JSON.", 0, "server")
     }
 
-    if (data.status === "failed") throw new BohudurError(ErrorCodes[data.responseCode] ?? data.message ?? "Bohudur: Server responded with failed status.", data.responseCode, "api")
+    if (data.status === "failed") throw new BohudurError(ErrorCodes[data.responseCode] ?? data.message ?? "Server responded with failed status.", data.responseCode, "api")
     return data as T
   } catch (error) {
     if (error instanceof BohudurError) throw error
