@@ -1,25 +1,28 @@
-import type { PaymentInfo, PaymentStatus } from "@type/payment"
-
-interface QueryOrExecute {
-  paykey: string
-  status: PaymentStatus
+interface ExecuteOrQuery {
   name: string
   email: string
   amount: number
-  convertedAmount: number | null
-  totalAmount: number | null
+  convertedAmount: number
+  totalAmount: number
+  transactionFee: number
+  defaultCurrency: string
+  paymentCurrency: string
+  currencyValue: number
+  metadata: Record<string, unknown> | null
   createdAt: Date
   paidAt: Date | null
+  paykey: string
   receipt: string | null
-  metadata: Record<string, unknown> | null
-  paymentInfo: PaymentInfo
+  webhook: Record<string, unknown>
+  paymentInfo: Record<string, unknown> | null
+  status: "PENDING" | "COMPLETED" | "EXECUTED" | "CANCELLED"
 }
 
 export interface CreateResponse {
   paykey: string
-  paymentUrl: string
+  paymentURL: string
 }
 
-export interface ExecuteResponse extends QueryOrExecute {}
+export interface ExecuteResponse extends ExecuteOrQuery {}
 
-export interface QueryResponse extends QueryOrExecute {}
+export interface QueryResponse extends ExecuteOrQuery {}
