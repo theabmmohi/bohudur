@@ -3,8 +3,8 @@ export interface CreateRequest {
   email: string
   amount: number
   returnType: "GET" | "POST"
-  redirectUrl: string
-  cancelUrl: string
+  redirectURL: string
+  cancelURL: string
   metadata?: Record<string, unknown>
   webhook?: {
     success?: string

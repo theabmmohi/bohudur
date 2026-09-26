@@ -1,3 +1,4 @@
+import { BohudurError, ErrorCodes } from "@error/index"
 import type { BohudurOptions } from "@type/index"
 
 const DEFAULT_BASEURL = "https://request.bohudur.one"
@@ -21,8 +22,16 @@ export async function request<T>(key: string, options: BohudurOptions, path: str
       body: JSON.stringify(body),
       signal: controller.signal
     })
+    if (!response.ok) throw new BohudurError(`Bohudur: Server error (HTTP ${response.status}).`, response.status, "server")
 
-    const data = await response.json()
+    let data: any
+    try {
+      data = await response.json()
+    } catch {
+      throw new BohudurError("Bohudur: Failed to parse server response as JSON.", response.status, "server")
+    }
+
+    if (data.status === "failed") throw new BohudurError(ErrorCodes[data.responseCode] ?? data.message ?? "Bohudur: Server responsed with failed status.", data.responseCode, "api")
     return data as T
   } catch (error) {
     throw error
