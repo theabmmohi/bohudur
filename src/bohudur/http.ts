@@ -28,13 +28,15 @@ export async function request<T>(key: string, options: BohudurOptions, path: str
     try {
       data = await response.json()
     } catch {
-      throw new BohudurError("Bohudur: Failed to parse server response as JSON.", response.status, "server")
+      throw new BohudurError("Bohudur: Failed to parse server response as JSON.", 0, "server")
     }
 
-    if (data.status === "failed") throw new BohudurError(ErrorCodes[data.responseCode] ?? data.message ?? "Bohudur: Server responsed with failed status.", data.responseCode, "api")
+    if (data.status === "failed") throw new BohudurError(ErrorCodes[data.responseCode] ?? data.message ?? "Bohudur: Server responded with failed status.", data.responseCode, "api")
     return data as T
   } catch (error) {
-    throw error
+    if (error instanceof BohudurError) throw error
+    if (error instanceof Error && error.name === "AbortError") throw new BohudurError(`Request timed out after ${timeout}ms`, 0, "network")
+    throw new BohudurError(error instanceof Error ? error.message : "Unknown error", 0, "network")
   } finally {
     clearTimeout(timer)
   }
