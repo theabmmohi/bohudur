@@ -1,3 +1,8 @@
-export * from "@bohudur/index"
-export * from "@error/index"
-export * from "@type/index"
+import type { BohudurOptions } from "@type/index"
+
+export default class Bohudur {
+  constructor(
+    private readonly key: string,
+    private readonly options: BohudurOptions = {}
+  ) {}
+}
