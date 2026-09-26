@@ -5,7 +5,7 @@
     "moduleResolution": "Bundler",
     "lib": ["ES2022"],
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDirs": ["src", "test"],
     "strict": true,
     "declaration": true,
     "declarationMap": true,
