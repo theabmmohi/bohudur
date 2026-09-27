@@ -9,7 +9,7 @@ interface ExecuteOrQuery {
   paymentCurrency: string
   currencyValue: number
   metadata: Record<string, unknown> | null
-  createdAt: Date
+  createdAt: Date | null
   paidAt: Date | null
   paykey: string
   receipt: string | null

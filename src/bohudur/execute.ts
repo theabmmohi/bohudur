@@ -39,7 +39,7 @@ export default async function execute(key: string, options: BohudurOptions, requ
     paymentCurrency: data.payment_currency,
     currencyValue: data.currency_value,
     metadata: Array.isArray(data.metadata) ? null : data.metadata,
-    createdAt: toDate(data.created_time) as Date,
+    createdAt: toDate(data.created_time),
     paidAt: toDate(data.payment_time),
     paykey: data.paymentkey,
     receipt: data.receipt === "NONE" ? null : data.receipt,

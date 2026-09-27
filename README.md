@@ -46,20 +46,16 @@ const bohudur = new Bohudur(process.env.BOHUDUR_API_KEY!, {
 
 ## API Flow
 
-```
-1. bohudur.create()          → get paymentURL + paykey
-        ↓
-2. Redirect user to paymentURL
-        ↓
-3. User pays or cancels on the hosted checkout page
-        ↓
-4. Webhook sent to your server (if configured)
-        ↓
-5. bohudur.verifyWebhook()   → confirm the real status, don't trust the webhook body
-        ↓
-6. bohudur.execute()         → finalize, only once verifyWebhook() confirms COMPLETED
-        ↓
-7. bohudur.query()           → check status anytime
+```mermaid
+flowchart TD
+    A["bohudur.create()<br/>get paymentURL + paykey"] --> B["Redirect user to paymentURL"]
+    B --> C{"User pays or cancels<br/>on hosted checkout"}
+    C -->|"Webhook configured"| D["Webhook sent to your server"]
+    D --> E["bohudur.verifyWebhook()<br/>confirm the real status,<br/>don't trust the webhook body"]
+    C -->|"No webhook"| F["bohudur.query()<br/>poll until status is COMPLETED"]
+    E --> G["bohudur.execute()<br/>finalize, only once COMPLETED is confirmed"]
+    F --> G
+    G --> H["bohudur.query()<br/>check status anytime"]
 ```
 
 ## `create(request)`
