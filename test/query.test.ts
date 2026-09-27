@@ -47,7 +47,7 @@ describe("query", () => {
     expect(result.receipt).toBeNull()
     expect(result.metadata).toBeNull()
     expect(result.paymentInfo).toBeNull()
-    expect(result.webhook).toEqual({})
+    expect(result.webhook).toBeNull()
     expect(result.status).toBe("PENDING")
     expect(result.createdAt).toBeInstanceOf(Date)
     expect(result.createdAt.toISOString()).toBe("2026-01-07T04:02:20.000Z")

@@ -137,14 +137,16 @@ const result = await bohudur.execute({ paykey: "fnPwIkdIsMjN4FJxYxw6DF75GuW9qStn
   createdAt: Date,       // parsed from created_time
   paidAt: Date | null,   // parsed from payment_time
   receipt: "https://pay.bohudur.one/receipt/download/102f89389f9e",
-  metadata: {},
-  webhook: {},
+  metadata: null,
+  webhook: null,
   paymentInfo: { m0: "Stripe" }, // gateway used, plus gateway-specific fields
   status: "EXECUTED"
 }
 ```
 
 `createdAt` and `paidAt` are native `Date` objects, not raw strings.
+
+`metadata`, `webhook`, and `paymentInfo` are each `null` when nothing was set on that payment, and the parsed object when something was — the shape returned by the actual API varies with the payment's status (e.g. a `PENDING` payment has no `receipt` or `paymentInfo` yet), not just with which fields you passed to `create()`.
 
 ## `query(request)`
 

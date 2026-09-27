@@ -13,7 +13,7 @@ interface ExecuteOrQuery {
   paidAt: Date | null
   paykey: string
   receipt: string | null
-  webhook: Record<string, unknown>
+  webhook: Record<string, unknown> | null
   paymentInfo: Record<string, unknown> | null
   status: "PENDING" | "COMPLETED" | "EXECUTED" | "CANCELLED"
 }

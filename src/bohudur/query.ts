@@ -43,7 +43,7 @@ export default async function query(key: string, options: BohudurOptions, reques
     paidAt: toDate(data.payment_time),
     paykey: data.paymentkey,
     receipt: data.receipt === "NONE" ? null : data.receipt,
-    webhook: Array.isArray(data.webhook) ? {} : data.webhook,
+    webhook: Array.isArray(data.webhook) ? null : data.webhook,
     paymentInfo: Array.isArray(data.payment_info) ? null : data.payment_info,
     status: data.status
   }

@@ -46,7 +46,7 @@ describe("execute", () => {
     expect(result.status).toBe("EXECUTED")
     expect(result.paykey).toBe("fnPwIkdIsMjN4FJxYxw6DF75GuW9qStn")
     expect(result.receipt).toBe("https://pay.bohudur.one/receipt/download/102f89389f9e")
-    expect(result.webhook).toEqual({})
+    expect(result.webhook).toBeNull()
     expect(result.metadata).toBeNull()
     expect(result.paymentInfo).toEqual({ m0: "Stripe", status: "succeeded", tran_id: "pi_demo_payment_intent" })
     expect(result.createdAt.toISOString()).toBe("2026-01-04T10:04:35.000Z")
