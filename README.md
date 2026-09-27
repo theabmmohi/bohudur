@@ -1,4 +1,4 @@
-The first unofficial Node.js SDK (before official 🙂) for the [Bohudur Payment API](https://bohudur.one) — a free payment automation platform supporting bKash, Nagad, Rocket, Upay, mCash, SSLCommerz, Stripe, Binance and more.
+The first unofficial Node.js SDK (before official 🙂) for the [Bohudur Payment API](https://bohudur.one) — a free payment automation platform supporting Binance, bKash, Nagad, Rocket and more.
 
 Wraps the official [Bohudur REST API](https://docs.bohudur.one/curl/) with a small class-based interface.
 
@@ -272,10 +272,6 @@ For `type: "api"` errors, `code` comes directly from Bohudur's API. Common ones:
 | `3016`/`3104`/`3054` | Request blocked — IP not authorized |
 
 Full list: [Bohudur cURL / REST API reference](https://docs.bohudur.one/curl/).
-
-## Supported gateways
-
-bKash, Nagad, Rocket, Upay, mCash, Bkash Merchant, SSLCommerz, Stripe, Binance.
 
 ## Links
 
