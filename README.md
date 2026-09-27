@@ -139,7 +139,7 @@ const result = await bohudur.execute({ paykey: "fnPwIkdIsMjN4FJxYxw6DF75GuW9qStn
   receipt: "https://pay.bohudur.one/receipt/download/102f89389f9e",
   metadata: null,
   webhook: null,
-  paymentInfo: { m0: "Stripe" }, // gateway used, plus gateway-specific fields
+  paymentInfo: { m0: "Stripe" }, // payment provider used, plus provider-specific fields
   status: "EXECUTED"
 }
 ```

@@ -12,7 +12,7 @@
     "rocket",
     "sdk"
   ],
-  "description": "TypeScript SDK for the Bohudur payment gateway",
+  "description": "TypeScript SDK for the Bohudur payment automation software",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theabmmohi/bohudur.git"
