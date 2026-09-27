@@ -49,7 +49,7 @@ describe("execute", () => {
     expect(result.webhook).toBeNull()
     expect(result.metadata).toBeNull()
     expect(result.paymentInfo).toEqual({ m0: "Stripe", status: "succeeded", tran_id: "pi_demo_payment_intent" })
-    expect(result.createdAt.toISOString()).toBe("2026-01-04T10:04:35.000Z")
+    expect(result.createdAt?.toISOString()).toBe("2026-01-04T10:04:35.000Z")
     expect(result.paidAt?.toISOString()).toBe("2026-01-04T10:12:37.000Z")
   })
 })
