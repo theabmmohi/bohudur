@@ -50,7 +50,7 @@ describe("query", () => {
     expect(result.webhook).toBeNull()
     expect(result.status).toBe("PENDING")
     expect(result.createdAt).toBeInstanceOf(Date)
-    expect(result.createdAt.toISOString()).toBe("2026-01-07T04:02:20.000Z")
+    expect(result.createdAt?.toISOString()).toBe("2026-01-07T04:02:20.000Z")
   })
 
   it("passes populated object fields (metadata/webhook/payment_info) through unchanged", async () => {
