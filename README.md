@@ -1,3 +1,10 @@
+> [!WARNING]
+> **This project is archived and no longer maintained.**
+>
+> On 27 September 2026, Bohudur's website, API, and support channels went offline. As a result, this SDK no longer works, and the links below (including the docs, the console, and the API and checkout URLs) may not resolve.
+>
+> The code is kept here for reference only. If Bohudur returns, this repository may be unarchived.
+
 The first unofficial Node.js SDK (before official 🙂) for the [Bohudur Payment API](https://bohudur.one) — a free payment automation platform supporting Binance, bKash, Nagad, Rocket and more.
 
 Wraps the official [Bohudur REST API](https://docs.bohudur.one/curl/) with a small class-based interface.
